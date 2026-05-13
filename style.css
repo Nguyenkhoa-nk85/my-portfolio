@@ -191,7 +191,7 @@ h1 {
 
 footer {
     position: absolute;
-    bottom: -500px;
+    bottom: -550px;
     width: 100%;
     text-align: center;
     color: #495670;
@@ -218,7 +218,7 @@ footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 150px; /* Đẩy nội dung xuống thấp hơn thanh menu */
+    padding-top: 80px; /* Đẩy nội dung xuống thấp hơn thanh menu */
     padding-left: 20px;
     padding-right: 20px;
 }
