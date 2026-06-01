@@ -574,3 +574,9 @@ footer {
 @media (max-width: 768px) {
     .contact-wrapper { grid-template-columns: 1fr; }
 }
+
+.personal-bio {
+    text-align: justify;
+    text-justify: inter-word; /* Giúp khoảng cách giữa các từ đều nhau hơn trên một số trình duyệt */
+    line-height: 1.6;        /* Tăng khoảng cách dòng một chút để đọc không bị mỏi mắt */
+}
