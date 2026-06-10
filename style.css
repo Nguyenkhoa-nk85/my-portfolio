@@ -580,3 +580,379 @@ footer {
     text-justify: inter-word; /* Giúp khoảng cách giữa các từ đều nhau hơn trên một số trình duyệt */
     line-height: 1.6;        /* Tăng khoảng cách dòng một chút để đọc không bị mỏi mắt */
 }
+
+
+/* Nền trang Sở thích */
+.hobbies-page {
+    background: linear-gradient(rgba(2, 12, 27, 0.9), rgba(2, 12, 27, 0.95)), 
+                url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Grid lớn bố trí 4 mảng sở thích */
+.hobbies-large-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Thẻ sở thích lớn */
+.hobby-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: left;
+    position: relative;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hobby-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.hobby-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.hobby-card h3 {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.hobby-card p {
+    color: #8892b0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* Dòng trạng thái giả lập hệ thống máy tính ở dưới mỗi card */
+.hobby-status {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    background: rgba(100, 255, 218, 0.05);
+    padding: 5px 15px;
+    border-radius: 5px;
+    width: fit-content;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.hobby-card:hover .hobby-icon {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px var(--accent-cyan);
+}
+
+/* Tương thích Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .hobbies-large-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* --- HIỆU ỨNG NỀN HẠT ĐỘNG (Thêm vào đầu hoặc cuối file) --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Nằm dưới cùng, làm nền */
+    pointer-events: none;
+}
+
+/* --- NÂNG CẤP THẺ 3D CHO TRANG SỞ THÍCH & KỸ NĂNG --- */
+/* --- SỬA LẠI GRID CHO TRANG SỞ THÍCH THẲNG THÀNH 1 HÀNG --- */
+.hobbies-large-grid {
+    display: grid;
+    /* Ép chia chính xác thành 4 cột bằng nhau trên 1 hàng duy nhất */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; /* Khoảng cách đồng đều giữa 4 khối */
+    margin-top: 50px;
+    perspective: 1000px; /* Giữ nguyên không gian 3D cho hiệu ứng nghiêng lật */
+    width: 100%;
+}
+
+/* --- ĐIỀU CHỈNH LẠI PADDING ĐỂ CHỮ KHÔNG BỊ QUÁ DÀI KHI THU NHỎ --- */
+.hobby-card {
+    padding: 30px 20px; /* Giảm bớt padding một chút để card thon gọn hơn trên 1 hàng */
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.7), rgba(2, 12, 27, 0.8));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- QUAN TRỌNG: RESPONSIVE CHO MOBILE --- */
+/* Khi xem trên điện thoại hoặc máy tính bảng nhỏ, ép chúng xếp dọc để không bị nát giao diện */
+@media (max-width: 1024px) {
+    .hobbies-large-grid {
+        grid-template-columns: repeat(2, 1fr); /* Màn hình vừa (Tablet) xếp thành 2 hàng x 2 cột */
+    }
+}
+
+@media (max-width: 768px) {
+    .hobbies-large-grid {
+        grid-template-columns: 1fr; /* Màn hình nhỏ (Mobile) xếp dọc thành 1 cột */
+    }
+}
+
+.hobby-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.7), rgba(2, 12, 27, 0.8));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transform-style: preserve-3d; /* Giữ hiệu ứng khối 3D */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hiệu ứng nghiêng 3D khi di chuột vào */
+.hobby-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25),
+                inset 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Làm cho các Icon nổi hẳn lên bề mặt 3D */
+.hobby-icon {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    transform: translateZ(30px); /* Đẩy icon nổi lên phía trước */
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.hobby-card:hover .hobby-icon {
+    color: var(--accent-cyan);
+    transform: translateZ(50px) scale(1.1);
+    text-shadow: 0 0 20px var(--accent-cyan);
+}
+
+.hobby-card h3 {
+    transform: translateZ(20px);
+}
+
+.hobby-card p {
+    transform: translateZ(15px);
+}
+
+/* Hiệu ứng thanh trạng thái nhấp nháy (Glitch/Pulse) */
+.hobby-status {
+    animation: textPulse 2s infinite alternate;
+}
+
+@keyframes textPulse {
+    0% { opacity: 0.6; box-shadow: 0 0 5px rgba(100, 255, 218, 0.2); }
+    100% { opacity: 1; box-shadow: 0 0 15px rgba(100, 255, 218, 0.6); }
+}
+
+
+
+/* ==========================================================================
+   CYBER GLITCH & AUTO-TYPING EFFECT FOR INDEX
+   ========================================================================== */
+
+/* 1. HIỆU ỨNG GLITCH CHO TIÊU ĐỀ */
+.glitch-title {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+/* Tạo lớp nhiễu bóng màu đỏ phía sau */
+.glitch-title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1; /* Màu hồng neon */
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+    background: transparent;
+}
+
+/* Tạo lớp nhiễu bóng màu xanh phía sau */
+.glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00d4ff, 0 2px #00d4ff; /* Màu xanh neon */
+    clip: rect(85px, 450px, 140px, 0);
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+    background: transparent;
+}
+
+/* Các bước ma trận cắt chữ để tạo độ nhiễu */
+@keyframes glitch-anim {
+    0% { clip: rect(31px, 9999px, 94px, 0); }
+    10% { clip: rect(112px, 9999px, 76px, 0); }
+    20% { clip: rect(85px, 9999px, 5px, 0); }
+    30% { clip: rect(27px, 9999px, 115px, 0); }
+    40% { clip: rect(73px, 9999px, 29px, 0); }
+    50% { clip: rect(118px, 9999px, 145px, 0); }
+    60% { clip: rect(18px, 9999px, 93px, 0); }
+    70% { clip: rect(43px, 9999px, 125px, 0); }
+    80% { clip: rect(86px, 9999px, 32px, 0); }
+    90% { clip: rect(105px, 9999px, 84px, 0); }
+    100% { clip: rect(14px, 9999px, 119px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(76px, 9999px, 116px, 0); }
+    11% { clip: rect(43px, 9999px, 98px, 0); }
+    22% { clip: rect(122px, 9999px, 14px, 0); }
+    33% { clip: rect(5px, 9999px, 85px, 0); }
+    44% { clip: rect(89px, 9999px, 132px, 0); }
+    55% { clip: rect(26px, 9999px, 54px, 0); }
+    66% { clip: rect(141px, 9999px, 67px, 0); }
+    77% { clip: rect(63px, 9999px, 112px, 0); }
+    88% { clip: rect(12px, 9999px, 89px, 0); }
+    100% { clip: rect(95px, 9999px, 143px, 0); }
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(1deg); }
+    10% { transform: skew(-2deg); }
+    20% { transform: skew(5deg); }
+    30% { transform: skew(-1deg); }
+    45% { transform: skew(3deg); }
+    50% { transform: skew(-5deg); }
+    75% { transform: skew(2deg); }
+    100% { transform: skew(0deg); }
+}
+
+/* 2. HIỆU ỨNG ĐÁNH MÁY TERMINAL CHO SUBTITLE */
+.typing-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    margin: 15px auto 30px auto;
+    /* Thực hiện hoạt ảnh gõ chữ trong 3.5 giây và nhấp nháy con trỏ */
+    animation: typing 3.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-cyan); }
+}
+
+
+
+
+
+/* ==========================================================================
+   DYNAMIC BACKGROUND ANIMATION FOR INDEX PAGE
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 160px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden; /* Ngăn hình nền tràn ra ngoài khi chuyển động */
+}
+
+/* Lớp nền chuyển động ẩn phía sau */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -10%; /* Mở rộng biên để không bị lộ viền đen khi dịch chuyển */
+    width: 120%; height: 120%;
+    
+    /* URL ảnh nền Robot xịn xò của bạn */
+    background: linear-gradient(rgba(2, 12, 27, 0.75), rgba(2, 12, 27, 0.85)), 
+                url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    
+    /* Kích hoạt luồng chuyển động vô hạn */
+    animation: backgroundMove 20s infinite ease-in-out alternate;
+    z-index: -2;
+}
+
+/* Lớp phủ quét dòng kiểu màn hình máy tính CRT (Scanlines) */
+.hero-section::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 212, 255, 0.04) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: -1;
+    background-size: 100% 4px, 6px 100%; /* Tạo các đường sọc ngang siêu mảnh */
+    pointer-events: none;
+}
+
+/* THUẬT TOÁN ĐIỀU KHIỂN CAMERA NỀN (ZOOM & PAN) */
+@keyframes backgroundMove {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.08) translate(-1%, 2%); /* Thu phóng nhẹ và dịch camera sang góc khác */
+    }
+    100% {
+        transform: scale(1.03) translate(1%, -1%);
+    }
+}
+
+
+.skills-grid {
+    display: flex;
+    justify-content: space-between; /* Căn đều khoảng cách giữa các khối */
+    align-items: stretch; /* Đảm bảo 3 khối cao bằng nhau */
+    flex-wrap: nowrap; /* Tuyệt đối không cho phép xuống dòng trên PC */
+    gap: 25px;
+    width: 100%;
+}
+
+/* Định dạng cho từng khối con bên trong */
+.skills-card {
+    flex: 1; /* Ép mỗi khối có độ rộng co giãn bằng nhau */
+    min-width: 0; /* Ngăn chặn văn bản làm phình kích thước khối */
+}
+
+/* Responsive cho mobile */
+@media screen and (max-width: 768px) {
+    .skills-grid {
+        flex-wrap: wrap; /* Cho phép xuống dòng khi màn hình quá nhỏ */
+    }
+}
